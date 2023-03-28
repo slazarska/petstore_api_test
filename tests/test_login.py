@@ -25,6 +25,11 @@ valid_creds = {
     'password': json_for_new_user['password'],
 }
 
+empty_creds = {
+    'username': " ",
+    'password': " ",
+}
+
 invalid_creds = {
     'username': f'InvalidUsername{random.randint(333, 999)}',
     'password': f'InvalidPassword{random.randint(999, 3333)}',
@@ -64,9 +69,8 @@ def test_logout():
     assert response.json()['message'] == 'ok', 'unexpected "message" attribute value'
 
 
-"""
 def test_login_with_no_credentials():
-    response = requests.get(f'{base_url}/login')
+    response = requests.get(f'{base_url}/login', params=empty_creds)
 
     assert response.status_code == 400
 
@@ -75,4 +79,4 @@ def test_login_with_invalid_credentials():
     response = requests.get(f'{base_url}/login', params=invalid_creds)
 
     assert response.status_code == 400
-"""
+
