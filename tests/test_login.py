@@ -1,6 +1,8 @@
 import json
 import random
 from datetime import datetime
+import allure
+from allure_commons.types import Severity
 
 import pytest
 import requests
@@ -36,6 +38,10 @@ invalid_creds = {
 }
 
 
+@allure.severity(Severity.CRITICAL)
+@allure.label('owner', 'slazarska')
+@allure.feature('User')
+@allure.story('Create a new user')
 @pytest.mark.dependency()
 def test_create_user():
     response = requests.post(
@@ -48,6 +54,12 @@ def test_create_user():
     assert int(response_body['message']) == json_for_new_user['id'], 'unexpected user id in the response'
 
 
+@allure.tag("API-GET")
+@allure.severity(Severity.BLOCKER)
+@allure.label('owner', 'slazarska')
+@allure.feature('User')
+@allure.story('Authorization')
+@pytest.mark.dependency()
 @pytest.mark.dependency(depends=['test_create_user'])
 def test_login():
     response = requests.get(f'{base_url}/login', params=valid_creds)
@@ -62,6 +74,11 @@ def test_login():
     assert int(x_rate_limit) == 5000, 'unexpected value of request rate limit'
 
 
+@allure.tag("API-GET")
+@allure.severity(Severity.CRITICAL)
+@allure.label('owner', 'slazarska')
+@allure.feature('User')
+@allure.story('Authorization')
 @pytest.mark.dependency(depends=['test_login'])
 def test_logout():
     response = requests.get(f'{base_url}/logout')
@@ -70,14 +87,21 @@ def test_logout():
     assert response.json()['message'] == 'ok', 'unexpected "message" attribute value'
 
 
+@allure.tag("API-GET")
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'slazarska')
+@allure.feature('User')
+@allure.story('Authorization')
 def test_login_with_no_credentials():
     response = requests.get(f'{base_url}/login', params=empty_creds)
-
     assert response.status_code == 400
 
 
+@allure.tag("API-GET")
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'slazarska')
+@allure.feature('User')
+@allure.story('Authorization')
 def test_login_with_invalid_credentials():
     response = requests.get(f'{base_url}/login', params=invalid_creds)
-
     assert response.status_code == 400
-
