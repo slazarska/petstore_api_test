@@ -36,6 +36,7 @@ invalid_creds = {
 }
 
 
+@pytest.mark.dependency()
 def test_create_user():
     response = requests.post(
         base_url,
