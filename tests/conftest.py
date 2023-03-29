@@ -6,7 +6,7 @@ from framework.helpers.auth_helper import Authentication
 from framework.helpers.user_helper import User
 from framework.helpers.pet_helper import Pet
 from framework.data.user_data import TestUserData
-from framework.utils.file_path import file_teddy, file_pumpkin, file_pumpernickel, file_pistachio
+from framework.utils.file_path import file_teddy
 
 base_url = 'https://petstore.swagger.io/v2/'
 
