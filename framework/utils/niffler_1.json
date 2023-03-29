@@ -4,7 +4,7 @@
     "id": 518,
     "name": "niffler"
   },
-  "name": "Pistachio",
+  "name": "Pumpkin",
   "photoUrls": [
     "https://www.fantastisbeats/catalog/985693584571.png"
   ],
@@ -14,5 +14,5 @@
       "name": "mammal"
     }
   ],
-  "status": "available"
+  "status": "sold"
 }

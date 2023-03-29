@@ -7,17 +7,17 @@ from framework.data.user_data import TestUserData
 from framework.helpers.auth_helper import Authentication
 from framework.helpers.user_helper import User
 
-json_for_new_user = {"id": TestUserData.USER_ID,
-                     "username": TestUserData.USERNAME,
-                     "firstName": TestUserData.FIRSTNAME,
-                     "lastName": TestUserData.LASTNAME,
-                     "email": TestUserData.EMAIL,
-                     "password": TestUserData.PASSWORD,
-                     "phone": TestUserData.PHONE,
-                     "userStatus": TestUserData.USER_STATUS}
+created_user = {"id": TestUserData.USER_ID,
+                "username": TestUserData.USERNAME,
+                "firstName": TestUserData.FIRSTNAME,
+                "lastName": TestUserData.LASTNAME,
+                "email": TestUserData.EMAIL,
+                "password": TestUserData.PASSWORD,
+                "phone": TestUserData.PHONE,
+                "userStatus": TestUserData.USER_STATUS}
 
 valid_creds = {
-    'username': "new_scamander",
+    'username': "newt_scamander",
     'password': "22tatFbacb",
 }
 
@@ -84,10 +84,10 @@ def test_login_with_invalid_credentials():
 @allure.feature('User')
 @allure.story('Create a new user')
 def test_create_user(delete_user):
-    create_user = User().post_add_user(json_for_new_user)
+    create_user = User().post_add_user(created_user)
     create_user.should_have_status_code(200)
     create_user.should_have_body_field("code", 200)
-    create_user.should_have_body_field("message", str(json_for_new_user["id"]))
+    create_user.should_have_body_field("message", str(created_user["id"]))
 
 
 @allure.suite("api-delete")
@@ -96,7 +96,7 @@ def test_create_user(delete_user):
 @allure.feature('User')
 @allure.story('Deleting the user')
 def test_delete_user(create_user):
-    delete_user = User().delete_user(json_for_new_user["username"])
+    delete_user = User().delete_user(created_user["username"])
     delete_user.should_have_status_code(200)
     delete_user.should_have_body_field("code", 200)
-    delete_user.should_have_body_field("message", str(json_for_new_user["username"]))
+    delete_user.should_have_body_field("message", str(created_user["username"]))

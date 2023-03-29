@@ -1,5 +1,6 @@
 import random
 import string
+
 from faker import Faker
 
 fake = Faker()
@@ -15,10 +16,6 @@ def generate_lastname():
 
 def generate_random_string(length: int = 5):
     return ''.join(random.choices(string.ascii_lowercase, k=length))
-
-
-def generate_random_image_url(ext: str = "jpg"):
-    return f"https:/some_image_site/{generate_random_string()}.{ext}"
 
 
 def generate_random_email():

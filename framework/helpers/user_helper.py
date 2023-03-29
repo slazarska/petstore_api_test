@@ -8,13 +8,8 @@ from framework.helpers.assert_helper import AssertHelper
 class User:
 
     def __init__(self):
-        self.url = "https://petstore.swagger.io/v2/"
+        self.url = 'https://petstore.swagger.io/v2/'
         self.headers = {'Content-Type': 'application/json'}
-
-    def get_user_by_username(self, username):
-        url = self.url + f"user/{username}"
-        response = requests.get(url=url)
-        return AssertHelper(response)
 
     def get_logout_user(self):
         url = self.url + "user/logout"

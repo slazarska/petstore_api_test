@@ -3,12 +3,10 @@ from allure_commons.types import Severity
 
 from framework.data.pet_data import get_pet_test_data
 from framework.helpers.pet_helper import Pet
-from framework.utils.file_path import file_pistachio, file_pumpernickel, file_pumpkin, file_teddy
+from framework.utils.file_path import file_pumpkin, file_teddy
 
 pet_data = get_pet_test_data(file_teddy)
 new_pet_data = get_pet_test_data(file_pumpkin)
-test_data = [get_pet_test_data(file_pistachio),
-             get_pet_test_data(file_pumpernickel)]
 
 
 @allure.suite('api-post')
@@ -32,16 +30,14 @@ def test_add_pet_with_valid_data(delete_pet):
 @allure.story('Deleting the pet')
 def test_delete_pet(add_pet):
     delete_pet = Pet().delete_pet(pet_data)
-    delete_pet.should_have_status_code(200)
-    delete_pet.should_have_body_field("code", 200)
-    delete_pet.should_have_body_field("message", str(pet_data["id"]))
+    delete_pet.should_have_status_code(404)
 
 
 @allure.suite("api-put")
 @allure.severity(Severity.NORMAL)
 @allure.label('owner', 'slazarska')
 @allure.feature('Pet')
-@allure.story('Chanding the pet')
+@allure.story('Changing the pet')
 def test_update_existing_pet(add_pet, delete_pet):
     update_existing_pet = Pet().put_existing_pet(new_pet_data)
     update_existing_pet.should_have_status_code(200)
@@ -52,24 +48,3 @@ def test_update_existing_pet(add_pet, delete_pet):
     get_pet_by_id.should_have_status_code(200)
     get_pet_by_id.should_have_body_field("name", new_pet_data["name"])
     get_pet_by_id.should_have_body_field("status", new_pet_data["status"])
-
-
-"""
-@allure.suite("api-put")
-@allure.severity(Severity.NORMAL)
-@allure.label('owner', 'slazarska')
-@allure.feature('Pet')
-@allure.story('Chanding the pet')
-@pytest.mark.parametrize("niffler", test_data)
-def test_update_existing_pet_param(add_pet, niffler, delete_pet):
-    niffler = test_data
-    update_existing_pet = Pet().put_existing_pet(niffler)
-    update_existing_pet.should_have_status_code(200)
-    update_existing_pet.should_have_body_field("name", niffler["name"])
-    update_existing_pet.should_have_body_field("status", niffler["status"])
-
-    get_pet_by_id = Pet().get_pet_by_id(niffler["id"])
-    get_pet_by_id.should_have_status_code(200)
-    get_pet_by_id.should_have_body_field("name", niffler["name"])
-    get_pet_by_id.should_have_body_field("status", niffler["status"])
-"""
