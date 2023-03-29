@@ -16,8 +16,9 @@
 ## Checks are implemented:
 
 - [X] - Successful/unsuccessful login and logout
+- [X] - Creating and deleting a user
 - [X] - Add a new pet
-- [X] - Update pet
+- [X] - Update the pet
 
 ## Added video with tests run:
 ![video]()

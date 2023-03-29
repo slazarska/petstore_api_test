@@ -5,7 +5,7 @@ from framework.data import generator
 
 class TestUserData:
 
-    USER_ID = random.randint(1000, 4000)
+    USER_ID = random.randint(10000, 100000)
     USERNAME = generator.generate_random_string()
     FIRSTNAME = generator.generate_firstname()
     LASTNAME = generator.generate_lastname()
