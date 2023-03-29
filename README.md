@@ -17,8 +17,8 @@
 
 - [X] - Successful/unsuccessful login and logout
 - [X] - Creating and deleting a user
-- [X] - Add a new pet
-- [X] - Update the pet
+- [X] - Adding a new pet
+- [X] - Update and deleting the pet
 
 ## Added video with tests run:
 ![video]()
