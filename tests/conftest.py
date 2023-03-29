@@ -1,19 +1,25 @@
 import pytest
+
+from framework.data.pet_data import get_pet_test_data
 from framework.utils.base_session import BaseSession
 from framework.helpers.auth_helper import Authentication
 from framework.helpers.user_helper import User
+from framework.helpers.pet_helper import Pet
 from framework.data.user_data import TestUserData
+from framework.utils.file_path import file_teddy, file_pumpkin, file_pumpernickel, file_pistachio
 
 base_url = 'https://petstore.swagger.io/v2/'
 
 json_for_new_user = {"id": TestUserData.USER_ID,
-                        "username": TestUserData.USERNAME,
-                        "firstName": TestUserData.FIRSTNAME,
-                        "lastName": TestUserData.LASTNAME,
-                        "email": TestUserData.EMAIL,
-                        "password": TestUserData.PASSWORD,
-                        "phone": TestUserData.PHONE,
-                        "userStatus": TestUserData.USER_STATUS}
+                     "username": TestUserData.USERNAME,
+                     "firstName": TestUserData.FIRSTNAME,
+                     "lastName": TestUserData.LASTNAME,
+                     "email": TestUserData.EMAIL,
+                     "password": TestUserData.PASSWORD,
+                     "phone": TestUserData.PHONE,
+                     "userStatus": TestUserData.USER_STATUS}
+
+created_pet = get_pet_test_data(file_teddy)
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -44,3 +50,16 @@ def delete_user():
     yield
     delete_user = User().delete_user(json_for_new_user["username"])
     delete_user.should_have_status_code(200)
+
+
+@pytest.fixture()
+def add_pet():
+    add_new_pet = Pet().post_add_new_pet(created_pet)
+    add_new_pet.should_have_status_code(200)
+
+
+@pytest.fixture()
+def delete_pet():
+    yield
+    delete_pet = Pet().delete_pet(created_pet["id"])
+    delete_pet.should_have_status_code(200)

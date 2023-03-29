@@ -1,0 +1,18 @@
+{
+  "id": 88889,
+  "category": {
+    "id": 518,
+    "name": "niffler"
+  },
+  "name": "Teddy",
+  "photoUrls": [
+    "https://www.fantastisbeats/catalog/985693584571.png"
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "mammal"
+    }
+  ],
+  "status": "available"
+}
