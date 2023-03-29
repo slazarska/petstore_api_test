@@ -23,6 +23,18 @@ def test_add_pet_with_valid_data(delete_pet):
     add_new_pet.should_have_body_field("status", pet_data["status"])
 
 
+@allure.suite('api-post')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'slazarska')
+@allure.feature('Pet')
+@allure.story('Find the pet')
+def test_find_pet_by_id(add_pet):
+    get_pet_by_id = Pet().get_pet_by_id(pet_data["id"])
+    get_pet_by_id.should_have_status_code(200)
+    get_pet_by_id.should_have_body_field("name", pet_data["name"])
+    get_pet_by_id.should_have_body_field("status", pet_data["status"])
+
+
 @allure.suite("api-delete")
 @allure.severity(Severity.NORMAL)
 @allure.label('owner', 'slazarska')
@@ -30,7 +42,9 @@ def test_add_pet_with_valid_data(delete_pet):
 @allure.story('Deleting the pet')
 def test_delete_pet(add_pet):
     delete_pet = Pet().delete_pet(pet_data)
-    delete_pet.should_have_status_code(404)
+    delete_pet.should_have_status_code(200)
+    delete_pet.should_have_body_field("code", 200)
+    delete_pet.should_have_body_field("message", str(pet_data["id"]))
 
 
 @allure.suite("api-put")
