@@ -6,7 +6,7 @@ from petstore_api_test.framework.helpers.auth_helper import Authentication
 from petstore_api_test.framework.helpers.pet_helper import Pet
 from petstore_api_test.framework.helpers.user_helper import User
 from petstore_api_test.framework.utils.base_session import BaseSession
-from petstore_api_test.framework.utils.file_path import teddy
+from petstore_api_test.framework.utils.file import teddy
 
 url = 'https://petstore.swagger.io/v2/'
 

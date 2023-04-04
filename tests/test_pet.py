@@ -3,7 +3,7 @@ from allure_commons.types import Severity
 
 from petstore_api_test.framework.data.pet_data import get_pet_test_data
 from petstore_api_test.framework.helpers.pet_helper import Pet
-from petstore_api_test.framework.utils.file_path import pumpkin, teddy
+from petstore_api_test.framework.utils.file import pumpkin, teddy
 
 pet_data = get_pet_test_data(teddy)
 new_pet_data = get_pet_test_data(pumpkin)

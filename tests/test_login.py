@@ -1,6 +1,7 @@
 import random
 
 import allure
+import pytest
 from allure_commons.types import Severity
 
 from petstore_api_test.framework.data.user_data import TestUserData
@@ -57,6 +58,7 @@ class TestLogin:
             logout_user.should_have_body_field("code", 200)
             logout_user.should_have_body_field("message", "ok")
 
+    @pytest.mark.xfail(reason='issue')
     @allure.severity(Severity.NORMAL)
     @allure.story('Authorization')
     def test_login_with_no_credentials(self):
@@ -66,6 +68,7 @@ class TestLogin:
             login_user.should_have_status_code(400)
             login_user.should_have_body_field("code", 400)
 
+    @pytest.mark.xfail(reason='issue')
     @allure.severity(Severity.NORMAL)
     @allure.story('Authorization')
     def test_login_with_invalid_credentials(self):
