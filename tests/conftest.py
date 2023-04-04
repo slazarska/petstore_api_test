@@ -1,14 +1,14 @@
 import pytest
 
-from framework.data.pet_data import get_pet_test_data
-from framework.data.user_data import TestUserData
-from framework.helpers.auth_helper import Authentication
-from framework.helpers.pet_helper import Pet
-from framework.helpers.user_helper import User
-from framework.utils.base_session import BaseSession
-from framework.utils.file_path import file_teddy
+from petstore_api_test.framework.data.pet_data import get_pet_test_data
+from petstore_api_test.framework.data.user_data import TestUserData
+from petstore_api_test.framework.helpers.auth_helper import Authentication
+from petstore_api_test.framework.helpers.pet_helper import Pet
+from petstore_api_test.framework.helpers.user_helper import User
+from petstore_api_test.framework.utils.base_session import BaseSession
+from petstore_api_test.framework.utils.file_path import teddy
 
-base_url = 'https://petstore.swagger.io/v2/'
+url = 'https://petstore.swagger.io/v2/'
 
 created_user = {"id": TestUserData.USER_ID,
                 "username": TestUserData.USERNAME,
@@ -19,12 +19,12 @@ created_user = {"id": TestUserData.USER_ID,
                 "phone": TestUserData.PHONE,
                 "userStatus": TestUserData.USER_STATUS}
 
-created_pet = get_pet_test_data(file_teddy)
+created_pet = get_pet_test_data(teddy)
 
 
 @pytest.fixture(scope='function', autouse=True)
-def just_session():
-    return BaseSession(base_url)
+def session():
+    return BaseSession(url)
 
 
 @pytest.fixture()

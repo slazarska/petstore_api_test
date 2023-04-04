@@ -3,9 +3,9 @@ import random
 import allure
 from allure_commons.types import Severity
 
-from framework.data.user_data import TestUserData
-from framework.helpers.auth_helper import Authentication
-from framework.helpers.user_helper import User
+from petstore_api_test.framework.data.user_data import TestUserData
+from petstore_api_test.framework.helpers.auth_helper import Authentication
+from petstore_api_test.framework.helpers.user_helper import User
 
 created_user = {"id": TestUserData.USER_ID,
                 "username": TestUserData.USERNAME,

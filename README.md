@@ -29,7 +29,7 @@
 </div>
 
 ## In a nutshell about the project
-- [x] Patterns `Page Object` and `Application Manager`
+- [x] Patterns `Page Object`
 - [x] Self-documenting code
 - [x] `Request/response` specification 
 - [x] Remote launch using `Jenkins` and `Selenoid`

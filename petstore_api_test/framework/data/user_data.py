@@ -1,6 +1,6 @@
 import random
 
-from framework.data import generator
+from petstore_api_test.framework.data import generator
 
 
 class TestUserData:
