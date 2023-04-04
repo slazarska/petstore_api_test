@@ -27,7 +27,7 @@ class TestPet:
 
     @allure.severity(Severity.NORMAL)
     @allure.story('Find the pet')
-    def test_find_pet_by_id(self, add_pet):
+    def test_find_pet_by_id(self, add_pet, delete_pet):
         with allure.step('Find the pet by id'):
             get_pet_by_id = Pet().get_pet_by_id(pet_data["id"])
 
@@ -40,12 +40,16 @@ class TestPet:
     @allure.story('Deleting the pet')
     def test_delete_pet(self, add_pet):
         with allure.step('Delete the pet'):
-            delete_pet = Pet().delete_pet(pet_data)
+            delete_pet = Pet().delete_pet(pet_data["id"])
 
         with allure.step('Check the pet is successfully deleted'):
             delete_pet.should_have_status_code(200)
             delete_pet.should_have_body_field("code", 200)
+
+        with allure.step('Check the deleted pet cannot be found'):
             delete_pet.should_have_body_field("message", str(pet_data["id"]))
+            get_pet_by_id = Pet().get_pet_by_id(pet_data["id"])
+            get_pet_by_id.should_have_status_code(404)
 
     @allure.severity(Severity.NORMAL)
     @allure.story('Changing the pet')
