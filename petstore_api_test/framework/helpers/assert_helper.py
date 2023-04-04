@@ -1,4 +1,4 @@
-from framework.helpers.response_helper import Condition
+from petstore_api_test.framework.helpers.response_helper import Condition
 
 
 class AssertHelper:

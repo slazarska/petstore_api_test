@@ -1,6 +1,6 @@
 import requests
 
-from framework.helpers.assert_helper import AssertHelper
+from petstore_api_test.framework.helpers.assert_helper import AssertHelper
 
 
 class Authentication:

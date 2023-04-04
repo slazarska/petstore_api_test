@@ -9,10 +9,10 @@
   - [Jenkins](#remote-launch-via-jenkins])
   - [Local](#local-launch )
 - Reporst:
-  - [Allure](test-reports-available-in-allure)
-  - [Allure TestOps](intergation-with-allure-testops)
-  - [Telegram](telegram)
-- [Video](test-run-video-example)
+  - [Allure](#test-reports-available-in-allure)
+  - [Allure TestOps](#intergation-with-allure-testops)
+  - [Telegram](#telegram)
+- [Video](#test-run-video-example)
 
 ## Technology Stack:
 <div>
@@ -29,9 +29,10 @@
 </div>
 
 ## In a nutshell about the project
-- [x] Patterns `Page Object` and `Application Manager`
+- [x] Patterns `Page Object`
 - [x] Self-documenting code
-- [x] `Request/response` specification 
+- [x] Requests HTTP Library 
+- [x] Parsing json files to access test data 
 - [x] Remote launch using `Jenkins` and `Selenoid`
 - [x] `Allure Reports` with attachments: logs, screenshots, videos
 - [x] Logging requests/responses in `Allure Reports`
@@ -49,7 +50,6 @@
 
 1. Click the "Build Now" button.
 <p><img src="" alt="Jenkins"/></p>
-## Run tests locally
 
 ## Local launch 
 

@@ -48,4 +48,5 @@ class BaseSession(Session):
     @allure_log
     def request(self, method, url, **kwargs) -> Response:
         with allure.step(f"{method} {url}"):
-            return super().request(method, self.url + url, **kwargs)
+            response = super().request(method, self.url + url, **kwargs)
+            return response

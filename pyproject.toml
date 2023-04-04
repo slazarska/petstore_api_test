@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "petstore-api-test"
+version = "0.1.0"
+description = ""
+authors = ["slazarska <slazarska@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "7.2.2"
+python-dotenv = "^1.0.0"
+selene = "2.0.0b16"
+allure-pytest = "^2.12.0"
+requests = "2.28.2"
+pydantic = "^1.10.2"
+pytest-xdist = "^2.5.0"
+curlify = "^2.2.1"
+helpers = "^0.2.0"
+selenium = "4.4.3"
+python-dateutil = "2.8.2"
+pytz = "2021.3"
+faker = "18.3.2"
+jsonpath_rw = "1.4.0"
+
+[tool.pytest.ini_options]
+addopts="-vv --alluredir=allure-results --clean-alluredir"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
