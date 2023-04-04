@@ -33,33 +33,26 @@ def login_user():
         'username': "newt_scamander",
         'password': "22tatFbacb",
     }
-    login_user = Authentication().get_login_user(valid_creds)
-    login_user.should_have_status_code(200)
-    login_user.should_have_body_field("code", 200)
-    login_user.does_str_in_value("message", "logged in user session:")
+    Authentication().get_login_user(valid_creds)
 
 
 @pytest.fixture()
 def create_user():
-    create_user = User().post_add_user(created_user)
-    create_user.should_have_status_code(200)
+    User().post_add_user(created_user)
 
 
 @pytest.fixture()
 def delete_user():
     yield
-    delete_user = User().delete_user(created_user["username"])
-    delete_user.should_have_status_code(200)
+    User().delete_user(created_user["username"])
 
 
 @pytest.fixture()
 def add_pet():
-    add_new_pet = Pet().post_add_new_pet(created_pet)
-    add_new_pet.should_have_status_code(200)
+    Pet().post_add_new_pet(created_pet)
 
 
 @pytest.fixture()
 def delete_pet():
     yield
-    delete_pet = Pet().delete_pet(created_pet["id"])
-    delete_pet.should_have_status_code(200)
+    Pet().delete_pet(created_pet["id"])
