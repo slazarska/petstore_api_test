@@ -78,7 +78,7 @@ allure serve .\allure-results
 ## Integration Jira with Allure TestOps is configured:
 ![image](tests/resources/img/screenshots/jira.png)
 <br><br>
-## Telegram notification configured:
+## Telegram notifications are configured:
 ![image](tests/resources/img/screenshots/bot.png)
 <br><br>
 Thanks :pray:<br/>
