@@ -6,7 +6,7 @@
 - [In a nutshell about the project](#in-a-nutshell-about-the-project)
 - [Checks are implemented](#checks-are-implemented)
 - Tests launch:
-  - [Jenkins](#remote-launch-via-jenkins])
+  - [Jenkins](#remote-launch-via-jenkins)
   - [Local](#local-launch )
 - Integrations & Reporst:
   - [Allure Report](#allure-report-is-connected-to-build-reports) 
@@ -71,14 +71,14 @@ pytest . --alluredir allure-results/
 allure serve .\allure-results
 ```
 
-## Allure TestOps was used as a Test Management system:
+## Allure TestOps is used as a Test Management system:
 ![image](tests/resources/img/screenshots/testops0.png)
 ![image](tests/resources/img/screenshots/testops1.png)
 <br><br>
 ## Integration Jira with Allure TestOps is configured:
 ![image](tests/resources/img/screenshots/jira.png)
 <br><br>
-## *elegram notification configured:
+## Telegram notification configured:
 ![image](tests/resources/img/screenshots/bot.png)
 <br><br>
 Thanks :pray:<br/>
