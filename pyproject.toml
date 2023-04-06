@@ -22,7 +22,11 @@ faker = "18.3.2"
 jsonpath_rw = "1.4.0"
 
 [tool.pytest.ini_options]
-addopts="-vv --alluredir=allure-results --clean-alluredir"
+log_cli = 1
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+addopts="-vv -s --alluredir=allure-results --allure-no-capture"
 
 
 [build-system]
