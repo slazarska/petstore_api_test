@@ -8,11 +8,11 @@
 - Tests launch:
   - [Jenkins](#remote-launch-via-jenkins])
   - [Local](#local-launch )
-- Reporst:
-  - [Allure](#test-reports-available-in-allure)
-  - [Allure TestOps](#intergation-with-allure-testops)
-  - [Telegram](#telegram)
-- [Video](#test-run-video-example)
+- Integrations & Reporst:
+  - [Allure Report](#allure-report-is-connected-to-build-reports) 
+  - [Allure TestOps](#allure-testOps-is-used-as-a-test-management-system)
+  - [Jira](#integration-Jira-with-allure-testOps-is-configured)
+  - [Telegram](#telegram-notifications-are-configured)
 
 ## Technology Stack:
 <div>
@@ -31,11 +31,8 @@
 ## In a nutshell about the project
 - [x] Patterns `Page Object`
 - [x] Self-documenting code
-- [x] Requests HTTP Library 
 - [x] Parsing json files to access test data 
-- [x] Remote launch using `Jenkins` and `Selenoid`
-- [x] `Allure Reports` with attachments: logs, screenshots, videos
-- [x] Logging requests/responses in `Allure Reports`
+- [x] Remote launch using `Jenkins`
 - [x] Integration with `Allure TestOps`
 - [x] Integration with `Jira`
 - [x] Notifications about test launch and test results via `Telegram`
@@ -46,10 +43,13 @@
 - [X] - Adding a new pet
 - [X] - Update and deleting the pet
 
+> Two tests are marked as xfail due to status code error:
+![image](tests/resources/img/screenshots/bug.png)
+
 ## Remote launch via [Jenkins](https://jenkins.autotests.cloud/job/slazarska-py-diplom-api/)
 
 1. Click the "Build Now" button.
-<p><img src="" alt="Jenkins"/></p>
+![image](tests/resources/img/screenshots/jenkins.png)
 
 ## Local launch 
 
@@ -62,36 +62,25 @@
 pytest . --alluredir allure-results/
 ```
 
-#### *Allure Report is connected to build reports:*
-![image]()
-![image]()
+## Allure Report is connected to build reports:
+![image](tests/resources/img/screenshots/allure_0.png)
+![image](tests/resources/img/screenshots/allure_1.png)
 
-> When running locally, enter:
+> If running locally, to check the Allure Report, enter on the command line:
 ```bash
 allure serve .\allure-results
 ```
 
-#### *Allure TestOps was used as a Test Management system:*
-![image]()
-![image]()
-![image]()
-<br />
-<br />
-
-#### *Integration with Jira:*
-![image]()
-<br /> 
-<br />
-
-#### *Telegram notification configured:*
-![image]()
-<br />
-<br />
-
-## Added video into tests run. Test run video example:
-![video]()
+## Allure TestOps was used as a Test Management system:
+![image](tests/resources/img/screenshots/testops0.png)
+![image](tests/resources/img/screenshots/testops1.png)
 <br><br>
-
+## Integration Jira with Allure TestOps is configured:
+![image](tests/resources/img/screenshots/jira.png)
+<br><br>
+## *elegram notification configured:
+![image](tests/resources/img/screenshots/bot.png)
+<br><br>
 Thanks :pray:<br/>
 :green_heart: <a target="_blank" href="https://qa.guru">QA.GURU</a><br/>
 :purple_heart: <a target="_blank" href="https://sites.google.com/view/qasisters/">QA Sisters</a><br/>
