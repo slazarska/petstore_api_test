@@ -1,4 +1,7 @@
+import os
+
 import pytest
+from dotenv import load_dotenv
 
 from petstore_api_test.framework.data.pet_data import get_pet_test_data
 from petstore_api_test.framework.data.user_data import TestUserData
@@ -8,7 +11,8 @@ from petstore_api_test.framework.helpers.user_helper import User
 from petstore_api_test.framework.utils.base_session import BaseSession
 from petstore_api_test.framework.utils.file import teddy
 
-url = 'https://petstore.swagger.io/v2/'
+load_dotenv()
+url = os.getenv('URL')
 
 created_user = {"id": TestUserData.USER_ID,
                 "username": TestUserData.USERNAME,
@@ -30,8 +34,8 @@ def session():
 @pytest.fixture()
 def login_user():
     valid_creds = {
-        'username': "newt_scamander",
-        'password': "22tatFbacb",
+        'username': os.getenv('USERNAME'),
+        'password': os.getenv('PASSWORD'),
     }
     Authentication().get_login_user(valid_creds)
 

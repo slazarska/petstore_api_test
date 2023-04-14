@@ -1,4 +1,5 @@
 import json
+import os
 
 import requests
 
@@ -8,7 +9,7 @@ from petstore_api_test.framework.helpers.assert_helper import AssertHelper
 class Pet:
 
     def __init__(self):
-        self.url = 'https://petstore.swagger.io/v2/'
+        self.url = os.getenv('URL')
         self.headers = {'Content-Type': 'application/json'}
 
     def get_pet_by_id(self, pet_id):

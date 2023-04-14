@@ -1,12 +1,17 @@
+import os
 import random
 
 import allure
 import pytest
 from allure_commons.types import Severity
+from dotenv import load_dotenv
 
 from petstore_api_test.framework.data.user_data import TestUserData
 from petstore_api_test.framework.helpers.auth_helper import Authentication
 from petstore_api_test.framework.helpers.user_helper import User
+
+load_dotenv()
+
 
 created_user = {"id": TestUserData.USER_ID,
                 "username": TestUserData.USERNAME,
@@ -18,8 +23,8 @@ created_user = {"id": TestUserData.USER_ID,
                 "userStatus": TestUserData.USER_STATUS}
 
 valid_creds = {
-    'username': "newt_scamander",
-    'password': "22tatFbacb",
+    'username': os.getenv('USERNAME'),
+    'password': os.getenv('PASSWORD'),
 }
 
 empty_creds = {

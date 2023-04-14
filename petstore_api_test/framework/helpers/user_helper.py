@@ -1,4 +1,5 @@
 import json
+import os
 
 import requests
 
@@ -8,7 +9,7 @@ from petstore_api_test.framework.helpers.assert_helper import AssertHelper
 class User:
 
     def __init__(self):
-        self.url = 'https://petstore.swagger.io/v2/'
+        self.url = os.getenv('URL')
         self.headers = {'Content-Type': 'application/json'}
 
     def get_logout_user(self):
