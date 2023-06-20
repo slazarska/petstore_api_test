@@ -46,7 +46,7 @@
 > Two tests are marked as xfail due to status code error:
 ![image](tests/resources/img/screenshots/bug.png)
 
-## Remote launch via [Jenkins](https://jenkins.autotests.cloud/job/slazarska-py-diplom-api/)
+## Remote launch via [Jenkins](https://jenkins.autotests.cloud/job/Students/job/slazarska-py-diplom-api/)
 
 1. Click the "Build Now" button.
 ![image](tests/resources/img/screenshots/jenkins.png)
